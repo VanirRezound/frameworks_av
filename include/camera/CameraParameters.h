@@ -117,9 +117,7 @@ public:
     void setPictureSize(int width, int height);
     void getPictureSize(int *width, int *height) const;
     void getSupportedPictureSizes(Vector<Size> &sizes) const;
-#ifdef HTC_3D_SUPPORT
     void set3DFileFormat(const char* buffer);
-#endif
     void setPictureFormat(const char *format);
     const char *getPictureFormat() const;
 #ifdef QCOM_HARDWARE
@@ -592,10 +590,8 @@ public:
     static const char KEY_FULL_VIDEO_SNAP_SUPPORTED[];
 
 #ifdef QCOM_HARDWARE
-#ifndef HAVE_ISO
     static const char KEY_ISO_MODE[];
     static const char KEY_SUPPORTED_ISO_MODES[];
-#endif
     static const char KEY_LENSSHADE[] ;
     static const char KEY_SUPPORTED_LENSSHADE_MODES[] ;
 
@@ -857,13 +853,6 @@ public:
     static const char SCENE_MODE_SPORTS[];
     static const char SCENE_MODE_PARTY[];
     static const char SCENE_MODE_CANDLELIGHT[];
-#ifdef STE_SAMSUNG_HARDWARE
-    static const char SCENE_MODE_AQUA[];
-    static const char SCENE_MODE_BACKLIGHT[];
-    static const char SCENE_MODE_DUSKDAWN[];
-    static const char SCENE_MODE_FALLCOLOR[];
-    static const char SCENE_MODE_TEXT[];
-#endif
 #ifdef QCOM_HARDWARE
     static const char SCENE_MODE_BACKLIGHT[];
     static const char SCENE_MODE_FLOWERS[];
@@ -887,14 +876,6 @@ public:
     static const char PIXEL_FORMAT_YUV420SP[]; // NV21
 #ifdef QCOM_HARDWARE
     static const char PIXEL_FORMAT_YUV420SP_ADRENO[]; // ADRENO
-#endif
-#ifdef STE_HARDWARE
-    static const char PIXEL_FORMAT_YUV420SPNV12[]; // NV12
-    static const char PIXEL_FORMAT_YVU422SP[];
-    static const char PIXEL_FORMAT_YVU422P[];
-    static const char PIXEL_FORMAT_YVU420SP[];
-    static const char PIXEL_FORMAT_YVU420P[];
-    static const char PIXEL_FORMAT_YUV420MB[];
 #endif
     static const char PIXEL_FORMAT_YUV422I[]; // YUY2
     static const char PIXEL_FORMAT_YUV420P[]; // YV12
@@ -1052,11 +1033,9 @@ public:
     static const char FACE_DETECTION_OFF[];
     static const char FACE_DETECTION_ON[];
 
-#if HTC_3D_SUPPORT
     // Values for HTC 3D image settings.
     static const char FILE_FORMAT_MPO[];
     static const char FILE_FORMAT_JPS[];
-#endif
 
     // Values for MCE settings.
     static const char MCE_ENABLE[];
@@ -1129,12 +1108,6 @@ public:
     void setPostviewSize(int x, int y);
 #endif
     void getSupportedHfrSizes(Vector<Size> &sizes) const;
-#endif
-
-#ifdef STE_HARDWARE
-    // keys for record stride and slice height
-    static const char KEY_RECORD_STRIDE[];
-    static const char KEY_RECORD_SLICE_HEIGHT[];
 #endif
 
 private:
