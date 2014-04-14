@@ -326,7 +326,7 @@ void OMXCodec::findMatchingCodecs(
 uint32_t OMXCodec::getComponentQuirks(
         const MediaCodecList *list, size_t index) {
     uint32_t quirks = 0;
-
+#ifdef HTC_3D_SUPPORT
     if (list->codecHasQuirk(
                 index, "needs-flush-before-disable")) {
         quirks |= kNeedsFlushBeforeDisable;
@@ -343,6 +343,7 @@ uint32_t OMXCodec::getComponentQuirks(
                 index, "requires-larger-encoder-output-buffer")) {
         quirks |= kRequiresLargerEncoderOutputBuffer;
     }
+#endif
     if (list->codecHasQuirk(
                 index, "needs-flush-before-disable")) {
         quirks |= kNeedsFlushBeforeDisable;
